@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phil&Will Menu</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        transition: transform 0.3s ease; /* Smooth transition for transform */
+    }
+    .background-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.5; /* Adjust opacity as needed */
+    }
+    .menu-container {
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+    }
+    .menu-section {
+        margin-bottom: 20px;
+    }
+    .menu-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start; /* Align items to the start of each menu item */
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better readability */
+        transition: margin-bottom 0.3s ease; /* Smooth transition for margin */
+        position: relative; /* Position relative for absolute positioning */
+    }
+    .menu-item.selected {
+        border: 2px solid red;
+        margin-bottom: 30px; /* Increased margin when selected */
+    }
+    .ingredients {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none; /* Initially hidden */
+        padding: 10px;
+       /* background-color: rgba(0, 0, 0, 0.8); /* Dark background for ingredients */
+        text-align: center; /* Center text inside ingredients */
+        z-index: 1; /* Ensure ingredients are above menu items */
+    }
+    .ingredients p {
+        margin: 0;
+        color: #fff;
+    }
+    .price {
+        align-self: flex-end; /* Align price to the right */
+    }
+    .order-now {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background-color: red;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        z-index: 2;
+    }
+    h1, h2, h3, p {
+        color: #fff;
+    }
+</style>
+</head>
+<body>
+
+<div class="background-image">
+    <img src="logo_philnwill.png" alt="Background Image" style="width: 100%; height: 100%; object-fit: cover;">
+</div>
+<div class="background-image">
+    <img src="logo_philnwill.png" alt="Background Image" style="width: 100%; height: 100%; object-fit: cover;">
+</div>
+
+<div class="menu-container">
+
+
+
+    <h1>Phill&Will</h1>
+    <h3>By One Tap</h3>
+    <p>Welcome to Phill&Will! We are delighted to serve you an exquisite dining experience. Enjoy our carefully curated menu featuring a variety of delicious dishes.</p>
+
+    <form action="/submit-order" method="POST">
+        <div class="menu-section">
+            <h2>Appetizers</h2>
+            <div class="menu-item" data-value="Bruschetta">
+                <input type="hidden" name="appetizers" value="">
+                <span>Bruschetta</span>
+                <span class="price">$7.99</span>
+                <div class="ingredients">
+                    <p>Tomatoes, garlic, basil, olive oil, balsamic vinegar</p>
+                </div>
+            </div>
+            <div class="menu-item" data-value="Calamari">
+                <input type="hidden" name="appetizers" value="">
+                <span>Calamari</span>
+                <span class="price">$9.99</span>
+                <div class="ingredients">
+                    <p>Squid, flour, seasoning</p>
+                </div>
+            </div>
+            <div class="menu-item" data-value="Stuffed Mushrooms">
+                <input type="hidden" name="appetizers" value="">
+                <span>Stuffed Mushrooms</span>
+                <span class="price">$8.99</span>
+                <div class="ingredients">
+                    <p>Mushrooms, breadcrumbs, cheese, herbs</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h2>Main Courses</h2>
+            <div class="menu-item" data-value="Grilled Salmon">
+                <input type="hidden" name="main_courses" value="">
+                <span>Grilled Salmon</span>
+                <span class="price">$18.99</span>
+                <div class="ingredients">
+                    <p>Salmon fillet, lemon, garlic, herbs</p>
+                </div>
+            </div>
+            <div class="menu-item" data-value="Chicken Alfredo">
+                <input type="hidden" name="main_courses" value="">
+                <span>Chicken Alfredo</span>
+                <span class="price">$15.99</span>
+                <div class="ingredients">
+                    <p>Chicken breast, fettuccine, cream, Parmesan cheese</p>
+                </div>
+            </div>
+            <div class="menu-item" data-value="Vegetarian Lasagna">
+                <input type="hidden" name="main_courses" value="">
+                <span>Vegetarian Lasagna</span>
+                <span class="price">$13.99</span>
+                <div class="ingredients">
+                    <p>Lasagna noodles, tomato sauce, vegetables, cheese</p>
+                </div>
+            </div>
+            <div class="menu-item" data-value="Ribeye Steak">
+                <input type="hidden" name="main_courses" value="">
+                <span>Ribeye Steak</span>
+                <span class="price">$24.99</span>
+                <div class="ingredients">
+                    <p>Ribeye steak, salt, pepper, butter</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h2>Desserts</h2>
+            <div class="menu-item" data-value="Tiramisu">
+                <input type="hidden" name="desserts" value="">
+                <span>Tiramisu</span>
+                <span class="price">$6.99</span>
+                <div class="ingredients">
+                    <p>Mascarpone cheese, ladyfinger biscuits, coffee, cocoa powder</p>
+                </div>
+            </div>
+            <div class="menu-item" data-value="Chocolate Lava Cake">
+                <input type="hidden" name="desserts" value="">
+                <span>Chocolate Lava Cake</span>
+                <span class="price">$7.99</span>
+                <div class="ingredients">
+                    <p>Chocolate, butter, sugar, eggs</p>
+                </div>
+            </div>
+            <div class="menu-item" data-value="Cheesecake">
+                <input type="hidden" name="desserts" value="">
+                <span>Cheesecake</span>
+                <span class="price">$6.99</span>
+                <div class="ingredients">
+                    <p>Cream cheese, graham cracker crust, sugar, vanilla extract</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h2>Beverages</h2>
+            <div class="menu-item" data-value="Soft Drinks">
+                <input type="hidden" name="beverages" value="">
+                <span>Soft Drinks</span>
+                <span class="price">$2.99</span>
+                <div class="ingredients">
+                    <p>Carbonated water, sugar, flavoring</p>
+                </div>
+            </div>
+            <div class="menu-item" data-value="Freshly Brewed Coffee">
+                <input type="hidden" name="beverages" value="">
+                <span>Freshly Brewed Coffee</span>
+                <span class="price">$2.99</span>
+                <div class="ingredients">
+                    <p>Coffee beans, water, milk, sugar (optional)</p>
+                </div>
+            </div>
+            <div class="menu-item" data-value="Tea">
+                <input type="hidden" name="beverages" value="">
+                <span>Tea</span>
+                <span class="price">$2.99</span>
+                <div class="ingredients">
+                    <p>Tea leaves or bags, water, optional milk, sugar</p>
+                </div>
+            </div>
+            <div class="menu-item" data-value="House Wine">
+                <input type="hidden" name="beverages" value="">
+                <span>House Wine</span>
+                <span class="price">$6.99 per glass / $24.99 per bottle</span>
+                <div class="ingredients">
+                    <p>Red or white wine, grapes</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h2>Specials of the Day</h2>
+            <p>Ask your server about our daily specials and seasonal offerings!</p>
+        </div>
+
+        <button type="submit">Submit Order</button>
+    </form>
+
+    <p>Thank you for dining with us at [Restaurant Name]. We hope you enjoy your meal and look forward to serving you again soon!</p>
+
+    <script>
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const ingredients = item.querySelector('.ingredients');
+                const selectedItems = document.querySelectorAll('.menu-item.selected');
+                item.classList.toggle('selected');
+                if (item.classList.contains('selected')) {
+                    ingredients.style.display = 'block'; // Show ingredients
+
+                    // Calculate total margin needed to make space for ingredients
+                    const ingredientsHeight = ingredients.offsetHeight;
+                    const marginAdjustment = ingredientsHeight + 20; // 20px margin-bottom for menu-item
+                    selectedItems.forEach(selectedItem => {
+                        if (selectedItem !== item) {
+                            selectedItem.style.marginBottom = `${marginAdjustment}px`;
+                        }
+                    });
+                } else {
+                    ingredients.style.display = 'none'; // Hide ingredients
+                    selectedItems.forEach(selectedItem => {
+                        selectedItem.style.marginBottom = '10px'; // Reset margin
+                    });
+                }
+            });
+        });
+    </script>
+
+</div>
+
+</body>
+</html>
